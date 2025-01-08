@@ -54,7 +54,7 @@
                     <a href="">Cafe Beraca</a>
                     <p>descripcion</p>
                 </div>
-                <button id="mas-proyecotos" class="mas-proyectos" onclick=""> Mas Proyectos</button>
+                <button id="mas-proyecotos" class="mas-proyectos" onclick="">Mas Proyectos</button>
             </article>
         </seccion>
     </main>
