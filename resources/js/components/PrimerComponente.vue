@@ -6,6 +6,7 @@
 </template>
 
 <script>
+// @vite(['resources/css/app.css', 'resources/js/app.js'])
 export default {
     data() {
         return {
