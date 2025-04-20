@@ -1,8 +1,8 @@
-<header class="navbar"> 
-    <nav>
-        <ul>
-            <li>Sobre Mi</li>
-            <li>Contactame</li>
+<header class="header-navbar"> 
+    <nav class="nav-navbar">
+        <ul class="ul-navbar">
+            <li class="navbar"><a href="">Sobre Mi</a></li>
+            <li class="navbar"><a href="">Contactame</a></li>
         </ul>
     </nav>
 </header>

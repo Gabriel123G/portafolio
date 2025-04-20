@@ -1,0 +1,58 @@
+/*estilos de la parte del header dentro del main*/
+
+.hero{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(10, 0, 27);
+}
+.hero h1{
+    color: antiquewhite;
+    font-size: 7vw;
+    font-family: 'Dramaturgia România';
+    
+}
+.hero img{
+    border-radius: 180%;
+    width: 40vw;
+}
+
+/*estilos de la parte de los proyectos dentro del main*/
+
+.proyects h2{
+    text-align: center;
+    font-family: 'Dramaturgia România';
+    font-size: 4vw;
+    color: rgb(10, 0, 27);
+}
+.proyect-card{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+    padding: 0 1rem;
+}
+.proyect{
+    border-radius: 5%;
+    box-shadow: 0 0 1rem 1rem  rgba(43, 105, 251, 0.06);
+    padding: 3%;
+    border: 0.5px solid rgba(43, 105, 251, 0.347);
+}
+.proyect h3{
+    text-align: center;
+}
+.proyect img{
+    width: 100%;
+    border-radius: 2%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+@font-face {
+    font-family: 'Dramaturgia România';
+    src: url('../fuentes/Dramaturgia România/PlaywriteRO-VariableFont_wght.ttf') format('truetype');
+}
