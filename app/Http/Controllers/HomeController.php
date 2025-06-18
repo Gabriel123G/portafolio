@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function home(){
-        $proyectos = ['nombre'=>'hola', // codigo ejemplo ruta del ejemplo :https://dunks1980.com/
+        $proyectos = ['nombre'=>'Café Beraca', // codigo ejemplo ruta del ejemplo :https://dunks1980.com/
                       'url'=>'jhsdkfnskdf',
-                      'descripcion'=>'lksdlfknsdklf'];
+                      'descripcion'=>'Pagina web de venta de café entre otros alimentos relacionadas con el café'];
         return view('home', compact('proyectos'));
+
     }
 }

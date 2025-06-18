@@ -1,53 +1,91 @@
 /*estilos de la parte del header dentro del main*/
 
-.hero{
+.hero {
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: rgb(10, 0, 27);
 }
-.hero h1{
-    color: antiquewhite;
-    font-size: 7vw;
-    font-family: 'Dramaturgia România';
-    
+.hero-titulo{
+    margin: 0 7vw;
 }
-.hero img{
+.hero-titulo h1 {
+    color: antiquewhite;
+    font-size: 6vw;
+    font-family: 'Dramaturgia România';
+    margin: 0;
+}
+.hero-titulo p{
+    text-align: left;
+    font-family: 'Montserrat-Regular';
+    font-weight: 400;
+    color: antiquewhite;
+    font-size: 1vw;
+    margin: 0 8vw 0 0;
+}
+
+.hero img {
+    box-shadow: 0 0 2vw rgba(0, 126, 189, 1);
     border-radius: 180%;
     width: 40vw;
+    z-index: 1;
 }
 
 /*estilos de la parte de los proyectos dentro del main*/
 
-.proyects h2{
+.proyects-titulo h2 {
     text-align: center;
     font-family: 'Dramaturgia România';
     font-size: 4vw;
     color: rgb(10, 0, 27);
+    text-shadow: 0 0 1rem rgba(43, 105, 251, 50%);
 }
-.proyect-card{
+
+.proyects-titulo p {
+    text-align: center;
+    font-family: 'Montserrat-Regular';
+    font-weight: 400;
+    color: rgb(10, 0, 27);
+    font-size: 1vw;
+}
+
+.proyect-card {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     padding: 0 1rem;
 }
-.proyect{
+
+.proyect {
     border-radius: 5%;
-    box-shadow: 0 0 1rem 1rem  rgba(43, 105, 251, 0.06);
+    box-shadow: 0 0 1rem 1rem rgba(43, 105, 251, 0.06);
     padding: 3%;
     border: 0.5px solid rgba(43, 105, 251, 0.347);
 }
-.proyect h3{
-    text-align: center;
-}
-.proyect img{
+
+.proyect img {
     width: 100%;
     border-radius: 2%;
     object-fit: cover;
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
-   -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 9%, rgba(0, 0, 0, 0) 92%);
-
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 9%, rgba(0, 0, 0, 0) 92%);
 }
+.proyect h3{
+    text-align: center;
+    font-family: 'Montserrat-Regular';
+    font-weight: 600;
+    font-size: 2vw;
+    color: rgb(10, 0, 27);
+}
+
+.proyect p{
+    text-align: left;
+    font-family: 'Montserrat-Regular';
+    font-size: 1vw;
+    font-weight: 400;
+    color: rgb(10, 0, 27);
+}
+
 
 
 
@@ -58,4 +96,9 @@
 @font-face {
     font-family: 'Dramaturgia România';
     src: url('../fuentes/Dramaturgia România/PlaywriteRO-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('../fuentes/Montserrat-Regular/Montserrat-VariableFont_wght.ttf');
 }
