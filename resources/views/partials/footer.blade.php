@@ -17,11 +17,31 @@
                 class="shape-fill"></path>
         </svg>
     </div>
-    <nav>
-        <ul>
-            <li class="navbar-footer"></li>
-            <li class="navbar-footer"></li>
-            <li class="navbar-footer"></li>
-        </ul>
-    </nav>
+    <div class="container-footer">
+        <div class="div-navbar-footer">
+            <nav>
+                <ul>
+                    <li class="navbar-footer"><a href="">Sobre mi</a></li>
+                    <li class="navbar-footer"><a href="">Contactame</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="redes-footer">
+            <a class="redes" id="whatsapp" href=""><img src="" alt=""></a>
+            <a class="redes" id="instagram" href=""><img src="" alt=""></a>
+            <a class="redes" id="linkedin" href=""><img src="" alt=""></a>
+            <a class="redes" id="github" href=""><img src="" alt=""></a>
+        </div>
+        <div class="div-form">
+            <form class="formulario-contacto" action="" method="post">
+                <label for="">Nombre</label>
+                <input class="input-form" name="nombre" type="text" required>
+                <label for="">Correo</label>
+                <input class="input-form"  type="email" name="correo">
+                <label for="">Mensaje</label>
+                <textarea class="input-form"  name="mensaje"></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
 </footer>
