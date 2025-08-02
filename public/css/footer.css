@@ -1,3 +1,6 @@
+ul{
+    padding:0;
+}
 .custom-shape-divider-top-1747705948 {
     width: 100%;
     overflow: hidden;
@@ -17,26 +20,18 @@
 
 .container-footer {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
-.navbar-footer {
-    list-style: none;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.navbar-footer a {
-    color: #0A001B;
-    text-decoration: none;
-}
 
 .formulario-contacto {
     display: grid;
     gap: 1rem;
     padding: auto;
 }
+
 .div-form {
-    border-radius: 10%;
+    border-radius: 2vw;
     box-shadow: 0 0 1rem 1rem rgba(43, 105, 251, 0.06);
     padding: 5%;
     margin: 10%;
@@ -52,7 +47,7 @@
 }
 
 .input-form {
-    width: 20vw;
+    width: 34vw;
     border-radius: 1vw;
     border-style: none;
     height: 2vw;
@@ -67,12 +62,57 @@
     background-color: rgb(211, 210, 210);
     box-shadow: 0 0 1rem 10px rgba(43, 105, 251, 0.2);
 }
-.div-form button{
+
+.div-form button {
     height: 2vw;
     border-style: none;
     border-radius: 1vw;
     justify-self: center;
-    width: 50%;
+    width: 7vw;
     background-color: #0A001B;
     color: aliceblue;
+}
+
+.redes-footer {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    place-content: end;
+    margin: 10%;
+}
+
+.titulo-footer {
+    grid-column: 1/5;
+    text-align: center;
+    font-family: 'Dramaturgia România';
+    font-size: 3vw;
+    margin: 0;
+    color: rgb(10, 0, 27);
+    text-shadow: 0 0 1rem rgba(43, 105, 251, 50%);
+}
+
+.redes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.redes-img {
+    height: 4vw;
+}
+.div-navbar-footer{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+     grid-column: 1/5;
+}
+.navbar-footer{
+    display: inline;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vw;
+  
+}
+.navbar-footer a{
+    color: #0A001B;
+    text-decoration: none;
 }

@@ -18,28 +18,34 @@
         </svg>
     </div>
     <div class="container-footer">
-        <div class="div-navbar-footer">
-            <nav>
-                <ul>
-                    <li class="navbar-footer"><a href="">Sobre mi</a></li>
-                    <li class="navbar-footer"><a href="">Contactame</a></li>
-                </ul>
-            </nav>
-        </div>
         <div class="redes-footer">
-            <a class="redes" id="whatsapp" href=""><img src="" alt=""></a>
-            <a class="redes" id="instagram" href=""><img src="" alt=""></a>
-            <a class="redes" id="linkedin" href=""><img src="" alt=""></a>
-            <a class="redes" id="github" href=""><img src="" alt=""></a>
+            <h3 class="titulo-footer">Sigueme en mis redes</h3>
+            <div class="div-navbar-footer">
+                <nav>
+                    <ul>
+                        <li class="navbar-footer"><a href="">Sobre mi</a></li>
+                        <li class="navbar-footer"> | </li>
+                        <li class="navbar-footer"><a href="">Contactame</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <a class="redes" href="{{ Route('WhatsApp') }}"><img class="redes-img" src="{{ asset('imagenes/WhatsApp-Logo.png') }}"
+                    alt="whatsapp"></a>
+            <a class="redes" href="https://www.instagram.com/ofc.gabo_1309/"><img class="redes-img"
+                    src="{{ asset('imagenes/instagram-Logo.png') }}" alt="instagram"></a>
+            <a class="redes" href="https://www.linkedin.com/in/gabriel-gonz%C3%A1lez-38249229a/"><img class="redes-img"
+                    src="{{ asset('imagenes/Untitled-2.png') }}" alt="linkedin"></a>
+            <a class="redes" href="https://github.com/Gabriel123G"><img class="redes-img"
+                    src="{{ asset('imagenes/Black-Github-Logo-PNG-Image.png') }}" alt="github"></a>
         </div>
         <div class="div-form">
             <form class="formulario-contacto" action="" method="post">
                 <label for="">Nombre</label>
                 <input class="input-form" name="nombre" type="text" required>
                 <label for="">Correo</label>
-                <input class="input-form"  type="email" name="correo">
+                <input class="input-form" type="email" name="correo">
                 <label for="">Mensaje</label>
-                <textarea class="input-form"  name="mensaje"></textarea>
+                <textarea class="input-form" name="mensaje"></textarea>
                 <button type="submit">Enviar</button>
             </form>
         </div>
