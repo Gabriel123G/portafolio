@@ -16,6 +16,7 @@ ul{
 
 .shape-fill {
     fill: #0A001B;
+     box-shadow: 0 0 1rem 1rem rgba(43, 105, 251, 0.06);
 }
 
 .container-footer {
@@ -110,9 +111,9 @@ ul{
     list-style: none;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2vw;
-  
+    color: #0a001bc4;
 }
 .navbar-footer a{
-    color: #0A001B;
+    color: #0a001bc4;
     text-decoration: none;
 }
