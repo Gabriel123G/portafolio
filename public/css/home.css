@@ -1,5 +1,7 @@
 /*estilos de la parte del header dentro del main*/
-
+body{
+    margin:0;
+}
 .hero {
     display: flex;
     justify-content: space-around;

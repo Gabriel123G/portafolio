@@ -12,7 +12,7 @@
     <title>Gabriel | González</title>
 </head>
 
-<body style="margin: 0">
+<body>
     @include('partials.header')
     <main>
         <header class="hero">
