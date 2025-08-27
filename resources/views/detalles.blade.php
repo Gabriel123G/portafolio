@@ -60,7 +60,7 @@
             <article class="habilidades-grid">
                 <div id="habilidad-1" class="habilidad">
                     <h3>hola</h3>
-                    <p>´sdvmslm</p>
+                    <p>sdvmslm</p>
                 </div>
                 <div id="habilidad-2" class="habilidad">
                     <h3>hola</h3>
@@ -75,9 +75,10 @@
                     <p>ñldcasdñlvms</p>
                 </div>
                 <div id="habilidad-5" class="habilidad">
-                    <p>sldfjsdfsldskfnsdfbsdvisoidvsdvnsdivnsdvs
+                    <p>sldfjsdfsldskfnsdfbsdvi
+                        soidvsdvnsdivnsdvs
                         gdvnoksdnosrosjpdfei</p>
-                    <img src="" alt="hola">
+                    <img src="{{ asset('imagenes/imagenes-proyectos/Captura de pantalla 2025-04-20 104233.png') }}" alt="hola">
                 </div>
             </article>
         </section>
