@@ -78,8 +78,14 @@
                     <p>sldfjsdfsldskfnsdfbsdvi
                         soidvsdvnsdivnsdvs
                         gdvnoksdnosrosjpdfei</p>
-                    <img src="{{ asset('imagenes/imagenes-proyectos/Captura de pantalla 2025-04-20 104233.png') }}" alt="hola">
+                    <img src="{{ asset('imagenes/imagenes-proyectos/Captura de pantalla 2025-04-20 104233.png') }}"
+                        alt="portafolio">
                 </div>
+            </article>
+            <article class="enlaces">
+                <a href=""><img class="redes-img" src="{{ asset('imagenes/detalles/enlace.png') }}" alt=""></a>
+                <a href=""><img class="redes-img" src="{{ asset('imagenes/Black-Github-Logo-PNG-Image.png') }}"
+                        alt=""></a>
             </article>
         </section>
     </main>

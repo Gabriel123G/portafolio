@@ -98,7 +98,7 @@ ul{
     align-items: center;
 }
 .redes-img {
-    height: 4vw;
+    height: 3vw;
 }
 .div-navbar-footer{
     display: flex;
@@ -110,7 +110,7 @@ ul{
     display: inline;
     list-style: none;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2vw;
+    font-size: 1.5vw;
     color: #0a001bc4;
 }
 .navbar-footer a{
