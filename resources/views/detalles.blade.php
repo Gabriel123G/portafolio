@@ -31,9 +31,9 @@
         <section class="img-proyecto">
             <article class="subtitulo-proyecto-1">
                 <h2>Imagenes del proyecto</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate consequuntur sequi enim
-                    blanditiis quasi ipsum amet! Tenetur, reprehenderit ipsa. Vero officia cupiditate neque dolorum, vel
-                    optio beatae quo quia velit.4</p>
+                <p>Aqui hay algunas imagenes que puede ilustrar de mejor manera la estetica
+                    de este proyecto 
+                </p>
             </article>
             <article class="imagenes-grid">
                 <img class="img-grid-detalles" id="imagen-grid-1"
@@ -53,9 +53,9 @@
         <section class="habilidades">
             <article class="subtitulo-proyecto-2">
                 <h2>Habilidades aprendidas</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit totam eos ratione provident expedita,
-                    ullam quo! Enim inventore nam vel, voluptas adipisci sapiente vero eum quia explicabo perferendis
-                    quas neque.</p>
+                <p>Estas son algunas habilidades que pude desarrollar en el proseso de creacion o 
+                   participacion de este proyecto.
+                </p>
             </article>
             <article class="habilidades-grid">
                 <div id="habilidad-1" class="habilidad">

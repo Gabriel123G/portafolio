@@ -1,0 +1,22 @@
+.menu-admin{
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    justify-items: center;
+    align-items: center;
+}
+.control-admin p{
+    margin: 1vw;
+    text-align: center;
+    font-family: 'Montserrat-Regular';
+    font-weight: 600;
+    font-size: 1vw;
+    color: rgb(10, 0, 27);
+}
+.control-admin button{
+    border: none;
+    background-color: white;
+    transition: translate 0.5s ease;
+}
+.control-admin button:hover{
+    translate:0 -10px ;
+}
