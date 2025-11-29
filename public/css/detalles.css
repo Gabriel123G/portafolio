@@ -154,6 +154,7 @@ section {
     border-radius: 1vw;
 }
 .enlaces{
+    margin: 3vw;
     display: flex;
     justify-content: space-around;
 }

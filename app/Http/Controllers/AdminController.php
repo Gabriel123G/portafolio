@@ -8,6 +8,14 @@ class AdminController extends Controller
 {
      public function admin(){
         return view('admin');
-    
+    }
+    public function crear(){
+
+    }
+    public function editar(){
+
+    }
+    public function eliminar(){
+        
     }
 }
