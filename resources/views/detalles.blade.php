@@ -49,6 +49,7 @@
                     src="{{ asset('imagenes/imagenes-proyectos/Captura de pantalla 2025-04-20 104233.png') }}"
                     alt="cafe-beraca">
             </article>
+            
         </section>
         <section class="habilidades">
             <article class="subtitulo-proyecto-2">

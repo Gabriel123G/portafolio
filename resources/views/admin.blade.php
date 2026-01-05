@@ -14,7 +14,7 @@
         const crear = document.getElementById('form-crear');
         const editar = document.getElementById('form-editar');
         const eliminar = document.getElementById('form-eliminar');
-            crear.style.display = '´block';
+            crear.style.display = 'none';
             editar.style.display = 'none';
             eliminar.style.display = 'none';
         document.getElementById('imagenes').addEventListener('change', function() {
