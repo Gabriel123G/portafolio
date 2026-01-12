@@ -59,6 +59,10 @@ return [
             'throw' => false,
             'report' => false,
         ],
+        'google' => [
+            'driver' => 'google',
+            'credentials' => env('GOOGLE_DRIVE_CREDENTIALS'),
+        ],
 
     ],
 
@@ -78,3 +82,4 @@ return [
     ],
 
 ];
+

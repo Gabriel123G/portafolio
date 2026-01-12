@@ -107,3 +107,20 @@
     gap: 1rem;
     padding: 0 1rem;
 }
+/*error css*/
+.alert-error{
+  display: block;
+  text-align: center;
+  height: 25px;
+  margin: 5px;
+  padding: 4px;
+  border-radius: 10px;
+  color: white;
+  background-color: red;
+}
+.error-cont{
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

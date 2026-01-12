@@ -9,44 +9,18 @@
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}?v={{ time() }}">
     <title>Admin</title>
-    <script>
-    window.addEventListener('DOMContentLoaded', function(){
-        const crear = document.getElementById('form-crear');
-        const editar = document.getElementById('form-editar');
-        const eliminar = document.getElementById('form-eliminar');
-            crear.style.display = 'none';
-            editar.style.display = 'none';
-            eliminar.style.display = 'none';
-        document.getElementById('imagenes').addEventListener('change', function() {
-            const maxFiles = 6;
-            if (this.files.length > maxFiles) {
-                alert(`Solo puedes subir un máximo de ${maxFiles} imágenes.`);
-                this.value = "";
-            }
-        });
-    });
-    function controlAdmin(opt){
-        const crear = document.getElementById('form-crear');
-        const editar = document.getElementById('form-editar');
-        const eliminar = document.getElementById('form-eliminar');
-        if(opt == 'crear'){
-            crear.style.display = 'block';
-            editar.style.display = 'none';
-            eliminar.style.display = 'none';
-        }else if(opt == 'editar'){
-            crear.style.display = 'none';
-            editar.style.display = 'block';
-            eliminar.style.display = 'none';
-        }else if(opt == 'eliminar'){
-            crear.style.display = 'none';
-            editar.style.display = 'none';
-            eliminar.style.display = 'block';
-        }
-    }
-    </script>
+    <script src="{{ asset('js/admin.js') }}?v={{ time() }}"></script>
 </head>
 
 <body>
+    @if ($errors->any())
+    <div class="error-cont">
+        @foreach ($errors->all() as $error)
+        <span class="alert-error" id="alert-error">{{ $error }}</span>
+        @endforeach
+    </div>
+    @endif
+
     @include('partials.header')
     <main>
         <header class="hero">
@@ -60,6 +34,7 @@
             <path style="fill: rgb(10, 0, 27)"
                 d="M-100 79C-100 79 218.416 23.165 693.5 23.165C1168.58 23.165 1487 79 1487 79V0H-100V79Z">
         </svg>
+
         <section class="menu-admin">
             <div id="Crear" class="control-admin">
                 <button onclick="controlAdmin('crear')">
@@ -82,19 +57,19 @@
         </section>
         <section class="section-form">
             <div id="form-crear" class="form-control-admin">
-                <form action="" method="POST">
+                <form action="{{ route('crear') }}" method="POST"  enctype="multipart/form-data">
                     <div class="form-titulo">
                         <h3>Crear Proyecto</h3>
                     </div>
                     @csrf
                     <label>Elija las imagenes del proyecto deben ser solo 6</label>
-                    <input type="file" b id="imagenes" name="imagenes[]" multiple accept="image/*">
+                    <input type="file"  id="imagenes" name="images[]" multiple accept="image/*">
                     <label>nombre del proyecto</label>
-                    <input type="text" name="nombreProyecto">
+                    <input type="text" name="name">
                     <label> ingrese una descripcion breve del proyecto</label>
-                    <textarea name="descripcionBreve"></textarea>
+                    <textarea name="details"></textarea>
                     <div class="habilidades">
-                        <div class="habilidad " >
+                        <div class="habilidad ">
                             <label>habilidad 1</label>
                             <input type="text" name="nombre-h1">
                             <textarea name="descripcion-h1"></textarea>
@@ -107,7 +82,7 @@
                         <div class="habilidad ">
                             <label> habilidad 3</label>
                             <input type="text" name="nombre-h3">
-                            <textarea name="descripcion-3"></textarea>
+                            <textarea name="descripcion-h3"></textarea>
                         </div>
                         <div class="habilidad ">
                             <label> habilidad 4</label>
@@ -121,7 +96,7 @@
             <div id="form-editar" class="form-control-admin">
                 <form action="" method="POST">
                     @csrf
-                      <div class="form-titulo">
+                    <div class="form-titulo">
                         <h3>Editar Proyecto</h3>
                     </div>
                     <select name="" id="">
@@ -159,7 +134,7 @@
             <div id="form-eliminar" class="form-control-admin">
                 <form action="" method="POST">
                     @csrf
-                      <div class="form-titulo">
+                    <div class="form-titulo">
                         <h3>Eliminar Proyecto</h3>
                     </div>
                     <select name="proyecto">
@@ -170,6 +145,7 @@
             </div>
         </section>
     </main>
+
     @include('partials.footer')
 </body>
 

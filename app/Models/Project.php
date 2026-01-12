@@ -10,4 +10,17 @@ class Project extends Model
     use HasFactory;
     
     protected $primaryKey = 'idProject';
+
+    protected $fillable = [
+        'name',
+        'details'
+    ];
+    public function skills() {
+    return $this->hasMany(Skill::class, 'idProject');
+}
+
+public function images_urls() {
+    return $this->hasMany(ImageUrl::class, 'idProject');
+}
+
 }
