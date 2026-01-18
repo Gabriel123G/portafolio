@@ -27,8 +27,8 @@ section {
 }
 .imagenes-grid{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: repeat(4,20vw);
+    grid-template-rows: repeat(2,19vw);
     gap: 1vw;
 }
 .img-grid-detalles{
@@ -148,7 +148,7 @@ section {
     color: rgba(10, 0, 27, 0.482);  
 }
 .habilidad img{
-    width: 35%;
+    width: 90%;
     height: 85%;
     object-fit: cover ; 
     border-radius: 1vw;

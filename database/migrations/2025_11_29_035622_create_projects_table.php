@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id('idProject');
             $table->string('name');
             $table->text('details');
-            
+            $table->text('github')->nullable();
+            $table->text('web')->nullable();
             $table->timestamps();
         });
     }

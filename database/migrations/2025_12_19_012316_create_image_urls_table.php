@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('image_urls', function (Blueprint $table) {
             $table->id('idImageUrl');
             $table->unsignedBigInteger('idProject');
-            $table->string('url');
+            $table->text('url');
             $table->foreign('idProject')->references('idProject')->on('projects')->onDelete('cascade');
             $table->timestamps();
         });

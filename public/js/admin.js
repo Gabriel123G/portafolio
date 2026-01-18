@@ -39,4 +39,13 @@ document.addEventListener('DOMContentLoaded',()=>{
        }, 150000);
       });
  });
-    
+ 
+  document.getElementById('select').addEventListener('change',()=>{
+    const pro = document.getElementById('pro');
+    const nombre = document.getElementById('');
+    let project = JSON.parse(pro.getdataset.proyectos);
+    project.forEach( p =>{
+        
+    });
+
+  });  

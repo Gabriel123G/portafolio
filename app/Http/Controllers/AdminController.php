@@ -17,7 +17,8 @@ class AdminController extends Controller
             return redirect()->route('google.redirect')
                 ->with('error', 'Debes autorizar Google Drive primero.');
         }
-        return view('admin');
+        $project = Project::with(['skills', 'images_urls'])->get(   );
+        return view('admin',compact('project'));
     }
     public function crear(Request $request, ImagesServices $drive)
     {
@@ -60,6 +61,8 @@ class AdminController extends Controller
         $project = Project::create([
             'name' => $validaciones['name'],
             'details' => $validaciones['details'],
+            'github' => $request->github,
+            'web' => $request->web
         ]);
 
         for($i = 0; $i<=3;$i++){
@@ -76,11 +79,13 @@ class AdminController extends Controller
 
             // Subir a Google Drive
             $url = $drive->uploadFile($path, $fileName);
+            $query = parse_url($url, PHP_URL_QUERY); // devuelve "id=1SOKb45S8Gvuz2lhdXFykdoEYD-gr4bF8"
+            parse_str($query, $params);
 
             // Guardar URL en la base de datos
             ImageUrl::create([
                 'idProject' => $project->idProject,
-                'url' => $url
+                'url' => $params['id']
             ]);
         }
 

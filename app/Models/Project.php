@@ -13,7 +13,9 @@ class Project extends Model
 
     protected $fillable = [
         'name',
-        'details'
+        'details',
+        'github',
+        'web'
     ];
     public function skills() {
     return $this->hasMany(Skill::class, 'idProject');
