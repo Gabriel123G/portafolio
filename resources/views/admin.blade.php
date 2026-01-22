@@ -23,7 +23,7 @@
 
     @include('partials.header')
     <main>
-        <div id="pro" data-proyectos="@json($projec)"></div>
+        <div id="pro" data-proyectos="{{  $project }}"></div>
         <header class="hero">
             <div class="hero-titulo">
                 <h1>Nombre del admin</h1>
@@ -103,24 +103,25 @@
                 </form>
             </div>
             <div id="form-editar" class="form-control-admin">
-                <form action="" method="POST">
+                <form action="{{ route('editar') }}" method="POST">
                     @csrf
                     <div class="form-titulo">
                         <h3>Editar Proyecto</h3>
                     </div>
-                    <select name="project" id="select">
+                    <select name="project" id="select-edit"  translate="no">
                         @foreach ($project as $pro )
-                            <option value="{{ $pro->id }}">{{ $pro->name}}</option>
+                            <option value="{{$pro->name}}">{{ $pro->name}}</option>
                         @endforeach 
                     </select>
+                    <input type="text" id="idProject" name="idProject" hidden>
                     <label>nombre del proyecto</label>
-                    <input id="nombre" type="text" name="nombreProyecto">
+                    <input id="nombre" type="text" name="name">
                     <label>descripcion</label>
-                    <textarea id="descripcion" name="descripcionBreve"></textarea>
+                    <textarea id="descripcion" name="details"></textarea>
                     <div class="habilidades">
                         <div class="habilidad 1">
                             <label>habilidad 1</label>
-                            <input id="nombre-1" type="text" name="nombre-h1">
+                            <input id="nombre-h1" type="text" name="nombre-h1">
                             <textarea id="descripcion-h1" name="descripcion-h1"></textarea>
                         </div>
                         <div class="habilidad 2">
@@ -138,18 +139,28 @@
                             <input id="nombre-h4" type="text" name="nombre-h4">
                             <textarea id="descripcion-h4" name="descripcion-h4"></textarea>
                         </div>
+                           <div class="habilidad ">
+                            <label>link de Github</label>
+                            <textarea id="github" name="github"></textarea>
+                        </div>
+                        <div class="habilidad ">
+                            <label>link de web</label>
+                            <textarea id="web" name="web"></textarea>
+                        </div>
                     </div>
                     <button type="submit">Guardar proyecto</button>
                 </form>
             </div>
             <div id="form-eliminar" class="form-control-admin">
-                <form action="" method="POST">
+                <form action="{{ route('eliminar') }}" method="POST">
                     @csrf
                     <div class="form-titulo">
                         <h3>Eliminar Proyecto</h3>
                     </div>
-                    <select name="proyecto">
-                        <option value="id-proyecto">2</option>
+                    <select id="select-delete" name="proyecto" translate="no">
+                         @foreach ($project as $pro )
+                            <option value="{{$pro->idProject}}">{{$pro->name}}</option>
+                        @endforeach 
                     </select>
                     <button type="submit">Eliminar proyecto</button>
                 </form>

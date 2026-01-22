@@ -59,5 +59,20 @@ class ImagesServices
         ]));
 
         return "https://drive.google.com/uc?id={$file->id}";
+        
+    }
+    public function deleteFile($fileId)
+    {
+        if (!$this->service) {
+            throw new \Exception("Google Drive no está autenticado. Autoriza primero.");
+        }
+
+        try {
+            $this->service->files->delete($fileId);
+            return true; // eliminado con éxito
+        } catch (\Exception $e) {
+            // Manejo de errores
+            throw new \Exception("Error al eliminar el archivo: " . $e->getMessage());
+        }
     }
 }
