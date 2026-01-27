@@ -32,6 +32,7 @@
         
         if(proyecto){
             idProject.value = proyecto.idProject;
+            console.log(idProject.value);
             nombre.value = proyecto.name;
             descripcion.value = proyecto.details;
             wed.value = proyecto.web;

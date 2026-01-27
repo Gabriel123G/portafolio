@@ -38,12 +38,16 @@
                 @foreach ($proyectos as $proyecto)
 
                 <article class="proyect">
-                    <a href="">
-                        <img src="{{asset('imagenes/imagenes-proyectos/Captura de pantalla 2025-04-20 104233.png')}}"
-                            alt="proyectos">
+                    <a href="{{ route('detalles', $proyecto->idProject) }}">
+                        @foreach ($proyecto->images_urls as $id)
+                        @if ($loop->iteration == 1)
+                        <img src="{{  route('imagen.proxy', ['id' => $id->url]) }}" alt="proyectos">
+                        @endif
+                        @endforeach
+
+                        <h3>{{$proyecto->name}}</h3>
+                        <p>{{$proyecto->details}}</p>
                     </a>
-                    <h3>{{$proyectos['nombre']}}</h3>
-                    <p>{{$proyectos['descripcion']}}</p>
                 </article>
 
                 @endforeach

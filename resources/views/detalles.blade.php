@@ -118,10 +118,10 @@
                 </article>
                     <article class="enlaces">
                         @if ($project->github)
-                            <a href="{{ $project->github }}"><img class="redes-img" src="{{ asset('imagenes/detalles/enlace.png') }}" alt=""></a>
+                            <a href="{{ $project->github }}"><img class="redes-img" src="{{asset('imagenes/Black-Github-Logo-PNG-Image.png')  }}" alt=""></a>
                         @endif
                         @if ($project->web)
-                            <a href="{{ $project->web }}"><img class="redes-img" src="{{ asset('imagenes/Black-Github-Logo-PNG-Image.png') }}"></a>
+                            <a href="{{ $project->web }}"><img class="redes-img" src="{{ asset('imagenes/detalles/enlace.png') }}"></a>
                         @endif
                     </article>
                 

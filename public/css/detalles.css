@@ -133,12 +133,12 @@ section {
     text-align: left;
     font-family: 'Montserrat-Regular';
     font-weight: 600;
-    font-size: 2vw;
+    font-size: 1.5vw;
     color: rgb(10, 0, 27);
     margin: 1vw;
 }
 .habilidad p{
-    width: 50%;
+    width: 80%;
     margin: 1vw;
     line-height: 1.7vw;
     text-align: justify;

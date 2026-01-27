@@ -23,7 +23,7 @@
 
     @include('partials.header')
     <main>
-        <div id="pro" data-proyectos="{{  $project }}"></div>
+        <div id="pro" data-proyectos="{{  $project }}" hidden></div>
         <header class="hero">
             <div class="hero-titulo">
                 <h1>Nombre del admin</h1>

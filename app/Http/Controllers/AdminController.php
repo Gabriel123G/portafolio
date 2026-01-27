@@ -34,22 +34,22 @@ class AdminController extends Controller
             'nombre-h2' => 'el dombre de habilidad es obligatorio',
             'nombre-h3' => 'el dombre de habilidad es obligatorio',
             'nombre-h4' => 'el dombre de habilidad es obligatorio',
-            'descripcion-h1' => 'descripcion de habilidad 1 es obligatorio',
-            'descripcion-h2' => 'descripcion de habilidad 2 es obligatorio',
-            'descripcion-h3' => 'descripcion de habilidad 3 es obligatorio',
-            'descripcion-h4' => 'descripcion de habilidad 4 es obligatorio ',
+            'descripcion-h1' => 'descripcion de habilidad 1 es obligatorio y no debe superar los 200 caracteres',
+            'descripcion-h2' => 'descripcion de habilidad 2 es obligatorio y no debe superar los 200 caracteres',
+            'descripcion-h3' => 'descripcion de habilidad 3 es obligatorio y no debe superar los 200 caracteres',
+            'descripcion-h4' => 'descripcion de habilidad 4 es obligatorio  y no debe superar los 200 caracteres',
         ];
         $validaciones = $request->validate([
             'name' => 'required|string|max:20',
-            'details' => 'required|string|max:50',
+            'details' => 'required|string|max:250',
             'nombre-h1' => 'required|string|max:20',
             'nombre-h2' => 'required|string|max:20',
             'nombre-h3' => 'required|string|max:20',
             'nombre-h4' => 'required|string|max:20',
-            'descripcion-h1' => 'required|string|max:100',
-            'descripcion-h2' => 'required|string|max:100',
-            'descripcion-h3' => 'required|string|max:100',
-            'descripcion-h4' => 'required|string|max:100',
+            'descripcion-h1' => 'required|string|max:200',
+            'descripcion-h2' => 'required|string|max:200',
+            'descripcion-h3' => 'required|string|max:200',
+            'descripcion-h4' => 'required|string|max:200',
         ], $messages);
 
         // Validar imágenes (ajusta size según lo que quieras)
@@ -104,25 +104,34 @@ class AdminController extends Controller
             'nombre-h2' => 'el dombre de habilidad es obligatorio',
             'nombre-h3' => 'el dombre de habilidad es obligatorio',
             'nombre-h4' => 'el dombre de habilidad es obligatorio',
-            'descripcion-h1' => 'descripcion de habilidad 1 es obligatorio',
-            'descripcion-h2' => 'descripcion de habilidad 2 es obligatorio',
-            'descripcion-h3' => 'descripcion de habilidad 3 es obligatorio',
-            'descripcion-h4' => 'descripcion de habilidad 4 es obligatorio ',
+            'descripcion-h1' => 'descripcion de habilidad 1 es obligatorio y no debe superar los 200 caracteres',
+            'descripcion-h2' => 'descripcion de habilidad 2 es obligatorio y no debe superar los 200 caracteres',
+            'descripcion-h3' => 'descripcion de habilidad 3 es obligatorio y no debe superar los 200 caracteres',
+            'descripcion-h4' => 'descripcion de habilidad 4 es obligatorio y no debe superar los 200 caracteres',
         ];
         $validaciones = $request->validate([
             'name' => 'required|string|max:20',
-            'details' => 'required|string|max:50',
+            'details' => 'required|string|max:250',
             'nombre-h1' => 'required|string|max:20',
             'nombre-h2' => 'required|string|max:20',
             'nombre-h3' => 'required|string|max:20',
             'nombre-h4' => 'required|string|max:20',
-            'descripcion-h1' => 'required|string|max:100',
-            'descripcion-h2' => 'required|string|max:100',
-            'descripcion-h3' => 'required|string|max:100',
-            'descripcion-h4' => 'required|string|max:100',
+            'descripcion-h1' => 'required|string|max:250',
+            'descripcion-h2' => 'required|string|max:250',
+            'descripcion-h3' => 'required|string|max:250',
+            'descripcion-h4' => 'required|string|max:250',
         ], $messages);
+
         $proyecto = Project::with(['skills'])->find($request->idProject);
         $proyecto->update($validaciones);
+        foreach ($proyecto->skills as $i => $skill) {
+            $skill->update([
+                'skill' => $validaciones['nombre-h' . $i + 1],
+                'details' => $validaciones['descripcion-h' . $i + 1],
+            ]);
+        }
+
+
         return redirect()->route('admin');
     }
     public function eliminar(Request $request)
