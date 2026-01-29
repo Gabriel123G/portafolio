@@ -6,24 +6,23 @@ use App\Models\ImageUrl;
 use App\Models\Project;
 use App\Models\Skill;
 use App\Services\ImagesServices;
-//use Google\Service\Storage;
 use Illuminate\Http\Request;
-
-
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    public function admin()
+    public function admin(ImagesServices $refreshToken)
     {
-        $token = session('google_token');
-        if (!$token) {
+        if (!Auth::user()->refresh_token) {
             return redirect()->route('google.redirect')
                 ->with('error', 'Debes autorizar Google Drive primero.');
         } else {
+            $refreshToken->refreshToken();
             $project = Project::with(['skills', 'images_urls'])->get();
             return view('admin', compact('project'));
         }
     }
+    
     public function crear(Request $request, ImagesServices $drive)
     {
         // Validar proyecto
@@ -52,13 +51,12 @@ class AdminController extends Controller
             'descripcion-h4' => 'required|string|max:200',
         ], $messages);
 
-        // Validar imágenes (ajusta size según lo que quieras)
+
         $request->validate([
             'images'   => 'required|array|size:6',
             'images.*' => 'image|mimes:jpg,png|max:5120'
         ]);
 
-        // Recuperar token de sesión
         $token = session('google_token');
         $drive->setAccessToken($token);
 
@@ -98,6 +96,7 @@ class AdminController extends Controller
     public function editar(Request $request)
     {
         $messages = [
+            'idProject.required' => 'debe seleccionar un proyecto para editar',
             'name.required' => 'El nombre es obligatorio.',
             'details.required' => 'Los detalles son obligatorios',
             'nombre-h1' => 'el dombre de habilidad es obligatorio',
@@ -110,6 +109,7 @@ class AdminController extends Controller
             'descripcion-h4' => 'descripcion de habilidad 4 es obligatorio y no debe superar los 200 caracteres',
         ];
         $validaciones = $request->validate([
+            'idProject' => 'required|string',
             'name' => 'required|string|max:20',
             'details' => 'required|string|max:250',
             'nombre-h1' => 'required|string|max:20',
@@ -139,10 +139,9 @@ class AdminController extends Controller
         $proyecto = Project::with(['images_urls'])->find($request->input('proyecto'));
         $token = session('google_token');
         $imageService = new ImagesServices();
-        $imageService->setAccessToken($token); // token OAuth válido
+        $imageService->setAccessToken($token);
 
         foreach ($proyecto->images_urls as $image) {
-            // Aquí ya tienes el file_id directamente
             $imageService->deleteFile($image->url);
             $image->delete();
         }

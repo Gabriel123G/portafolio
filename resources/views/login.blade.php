@@ -26,7 +26,16 @@
                 d="M-100 79C-100 79 218.416 23.165 693.5 23.165C1168.58 23.165 1487 79 1487 79V0H-100V79Z">
         </svg>
        
-
+        <form action="{{ route('login.login') }}" method="POST">
+            @csrf
+            <label>Nombre</label>
+            <input type="text" name="name">
+            <label>E-mail</label>
+            <input type="email" name="email">
+            <label>Contraseña</label>
+            <input type="password" name="password">
+            <button>iniciar sesion</button>
+        </form>
         </main>
         
     @include('partials.footer')

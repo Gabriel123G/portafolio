@@ -6,12 +6,11 @@ use Google_Client;
 use Google_Service_Drive;
 use Google_Service_Drive_DriveFile;
 use Google_Service_Drive_Permission;
+use Illuminate\Support\Facades\Auth;
 
 class ImagesServices
 {
-    /**
-     * Create a new class instance.
-     */
+
     protected $client;
     protected $service;
     public function __construct()
@@ -29,6 +28,14 @@ class ImagesServices
     {
         $this->client->setAccessToken($token);
         $this->service = new Google_Service_Drive($this->client);
+    }
+    public function refreshToken(){
+        $refreshToken = decrypt(Auth::user()->refresh_token);
+
+        $this->client->refreshToken($refreshToken);
+        $newAccessToken = $this->client->getAccessToken();
+
+        session(['google_token' => $newAccessToken]);
     }
 
 
@@ -52,7 +59,6 @@ class ImagesServices
             'fields' => 'id'
         ]);
 
-        // Hacerlo público
         $this->service->permissions->create($file->id, new Google_Service_Drive_Permission([
             'role' => 'reader',
             'type' => 'anyone',

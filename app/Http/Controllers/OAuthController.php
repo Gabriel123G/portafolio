@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Google_Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OAuthController extends Controller
 {
@@ -24,7 +26,7 @@ class OAuthController extends Controller
     public function callback(Request $request)
     {
         if (!$request->has('code')) {
-            return redirect()->route('admin')
+            return redirect()->route('login')
                 ->with('error', 'No se recibió el código de autorización de Google.');
         }
 
@@ -43,9 +45,16 @@ class OAuthController extends Controller
                 ->with('error', 'Error al obtener el token: ' . $token['error_description']);
         }
 
-        // Guardar token en sesión
-        session(['google_token' => $token]);
-
+        // Guardar token en sesión y guardando el la base de datos
+        $refreshToken = $token['refresh_token'] ?? null;
+        
+        if (Auth::user()->refresh_token == null) {
+            User::where('id', Auth::user()->id)->update([
+                'refresh_token' => encrypt($refreshToken),
+            ]);
+             session(['google_token' => $token]);
+        }
         return redirect()->route('admin')->with('success', 'Google Drive conectado');
     }
 }
+
