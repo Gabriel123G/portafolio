@@ -1,19 +1,19 @@
- window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', function () {
     const crear = document.getElementById('form-crear');
     const editar = document.getElementById('form-editar');
     const eliminar = document.getElementById('form-eliminar');
-        crear.style.display = 'none';
-        editar.style.display = 'none';
-        eliminar.style.display = 'none';
-    document.getElementById('imagenes').addEventListener('change', function() {
+    crear.style.display = 'none';
+    editar.style.display = 'none';
+    eliminar.style.display = 'none';
+    document.getElementById('imagenes').addEventListener('change', function () {
         const maxFiles = 6;
         if (this.files.length > maxFiles) {
             alert(`Solo puedes subir un máximo de ${maxFiles} imágenes.`);
             this.value = "";
         }
     });
-    document.getElementById('select-edit').addEventListener('click',function(){
-        
+    document.getElementById('select-edit').addEventListener('click', function () {
+
         const pro = document.getElementById('pro');
         const idProject = document.getElementById('idProject')
         const nombre = document.getElementById('nombre');
@@ -29,59 +29,60 @@
         const wed = document.getElementById('web');
         const github = document.getElementById('github');
         let proyecto = JSON.parse(pro.dataset.proyectos).find(p => p.name === this.value);
-        
-        if(proyecto){
+
+        if (proyecto) {
             idProject.value = proyecto.idProject;
             console.log(idProject.value);
             nombre.value = proyecto.name;
             descripcion.value = proyecto.details;
             wed.value = proyecto.web;
-            github.value = proyecto.github; 
-            proyecto.skills.forEach((p,i)=>{
-                if(i == 0){
+            github.value = proyecto.github;
+            proyecto.skills.forEach((p, i) => {
+                if (i == 0) {
                     nombre1.value = p.skill
                     descripcion_h1.value = p.details
-                }else if(i == 1){
+                } else if (i == 1) {
                     nombre2.value = p.skill
                     descripcion_h2.value = p.details
-                }else if(i == 2){
+                } else if (i == 2) {
                     nombre3.value = p.skill
                     descripcion_h3.value = p.details
-                }else if(i == 3){
+                } else if (i == 3) {
                     nombre4.value = p.skill
                     descripcion_h4.value = p.details
                 }
 
             });
-            
+
         }
 
-    }); 
+    });
 });
-        
- document.addEventListener('DOMContentLoaded',()=>{
+
+document.addEventListener('DOMContentLoaded', () => {
     let alerta = document.querySelectorAll('.alert-error');
-    alerta.forEach(function(alerta) { 
-      setTimeout(function() { 
-        alerta.style.display = 'none';
-       }, 3000);
-      });
- });
-function controlAdmin(opt){
-        const crear = document.getElementById('form-crear');
-        const editar = document.getElementById('form-editar');
-        const eliminar = document.getElementById('form-eliminar');
-        if(opt == 'crear'){
-            crear.style.display = 'block';
-            editar.style.display = 'none';
-            eliminar.style.display = 'none';
-        }else if(opt == 'editar'){
-            crear.style.display = 'none';
-            editar.style.display = 'block';
-            eliminar.style.display = 'none';
-        }else if(opt == 'eliminar'){
-            crear.style.display = 'none';
-            editar.style.display = 'none';
-            eliminar.style.display = 'block';
-        }
+    alerta.forEach(function (alerta) {
+        setTimeout(function () {
+            alerta.style.display = 'none';
+        }, 3000);
+    });
+});
+function controlAdmin(opt) {
+    const crear = document.getElementById('form-crear');
+    const editar = document.getElementById('form-editar');
+    const eliminar = document.getElementById('form-eliminar');
+    if (opt == 'crear') {
+        crear.style.display = 'block';
+        editar.style.display = 'none';
+        eliminar.style.display = 'none';
+    } else if (opt == 'editar') {
+        crear.style.display = 'none';
+        editar.style.display = 'block';
+        eliminar.style.display = 'none';
+    } else if (opt == 'eliminar') {
+        crear.style.display = 'none';
+        editar.style.display = 'none';
+        eliminar.style.display = 'block';
     }
+}
+

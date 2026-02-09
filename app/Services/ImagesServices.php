@@ -31,7 +31,7 @@ class ImagesServices
     }
     public function refreshToken(){
         $refreshToken = decrypt(Auth::user()->refresh_token);
-
+        
         $this->client->refreshToken($refreshToken);
         $newAccessToken = $this->client->getAccessToken();
 

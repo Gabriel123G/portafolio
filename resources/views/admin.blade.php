@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="{{ asset('css/home.css')}}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}?v={{ time() }}">
-    <title>Admin</title>
     <script src="{{ asset('js/admin.js') }}?v={{ time() }}"></script>
+    <link rel="shortcut icon" href="{{ asset('imagenes/1.png')}}?v={{ time() }}">
+    <title>Admin</title>
 </head>
 
 <body>
@@ -26,8 +27,10 @@
         <div id="pro" data-proyectos="{{  $project }}" hidden></div>
         <header class="hero">
             <div class="hero-titulo">
-                <h1>Nombre del admin</h1>
-                <p>Bienvenido Nombre del admin</p>
+                @if (Auth::check())
+                <h1>{{ Auth::user()->name }}</h1>
+                <p>Bienvenido {{ Auth::user()->name }}</p>
+                @endif
             </div>
             <img src="{{ asset('imagenes/hero_setup.jpg')}}" alt="imagen-portada-portafolio">
         </header>

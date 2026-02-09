@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminVerificationController;
+use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\DetallesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -18,6 +20,7 @@ Route::get('/imagen/{id}', [DetallesController::class, 'actualizar'])->name('ima
 Route::get('/inicio_sesion',[LoginController::class,'viewLogin'])->name('login');
 Route::post('/login',[LoginController::class,'login'])->name('login.login');
 Route::post('/logout',[LoginController::class, 'logout'])->name('login.logout');
+Route::post('/signUp',[LoginController::class, 'signUp'])->name('login.signup');
 Route::get('/admin',[AdminController::class , 'admin'])->name('admin')->middleware('auth');
 Route::post('/admin/crear',[AdminController::class , 'crear'])->name('crear')->middleware('auth');
 Route::post('/admin/editar',[AdminController::class , 'editar'])->name('editar')->middleware('auth');
@@ -25,3 +28,6 @@ Route::post('/admin/eliminar',[AdminController::class , 'eliminar'])->name('elim
 
 Route::get('/oauth2/redirect', [OAuthController::class, 'redirect'])->name('google.redirect');
 Route::get('/oauth2/callback', [OAuthController::class, 'callback'])->name('google.callback');
+
+Route::post('/contacto',[ContactoController::class , 'send'])->name('contacto');
+Route::get('/verify-user/{token}', [AdminVerificationController::class, 'verify'])->where('token', '.*')->name('very');

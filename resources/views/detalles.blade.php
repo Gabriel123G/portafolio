@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/home.css')}}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/detalles.css') }}?v={{ time() }}">
-
+    <link rel="shortcut icon" href="{{ asset('imagenes/1.png')}}?v={{ time() }}">
     <title>Gabriel | González</title>
 </head>
 

@@ -23,9 +23,9 @@
             <div class="div-navbar-footer">
                 <nav>
                     <ul>
-                        <li class="navbar-footer"><a href="">Sobre mi</a></li>
+                        <li class="navbar-footer"><a href="{{ route('home') }}">Sobre mi</a></li>
                         <li class="navbar-footer"> | </li>
-                        <li class="navbar-footer"><a href="">Contactame</a></li>
+                        <li class="navbar-footer"><a href="#div-form">Contactame</a></li>
                     </ul>
                 </nav>
             </div>
@@ -38,8 +38,9 @@
             <a class="redes" href="https://github.com/Gabriel123G"><img class="redes-img"
                     src="{{ asset('imagenes/Black-Github-Logo-PNG-Image.png') }}" alt="github"></a>
         </div>
-        <div class="div-form">
-            <form class="formulario-contacto" action="" method="post">
+        <div id="div-form" class="div-form">
+            <form class="formulario-contacto" action="{{ route('contacto') }}" method="post">
+                @csrf
                 <label for="">Nombre</label>
                 <input class="input-form" name="nombre" type="text" required>
                 <label for="">Correo</label>

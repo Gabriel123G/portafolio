@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/header.css')}}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/home.css')}}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}?v={{ time() }}">
-
+    <link rel="shortcut icon" href="{{ asset('imagenes/1.png')}}?v={{ time() }}">
     <title>Gabriel | González</title>
 </head>
 
@@ -21,7 +21,7 @@
                 <p>Mi nombre es Gabriel González, soy desarrollador fullstack junior y estudiante en la facultade de
                     ingienieria en sistema de la utp en la licenciatura de gestion y desarrollo de software.</p>
             </div>
-            <img src="{{ asset('imagenes/hero_setup.jpg')}}" alt="imagen-portada-portafolio">
+            <img src="{{ asset('imagenes/1.png')}}" alt="imagen-portada-portafolio">
         </header>
         <svg class="svg-curve" viewBox="0 0 1440 79">
             <path style="fill: rgb(10, 0, 27)"

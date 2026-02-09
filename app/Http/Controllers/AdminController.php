@@ -138,6 +138,7 @@ class AdminController extends Controller
     {
         $proyecto = Project::with(['images_urls'])->find($request->input('proyecto'));
         $token = session('google_token');
+        
         $imageService = new ImagesServices();
         $imageService->setAccessToken($token);
 
