@@ -11,6 +11,6 @@ class ContactoController extends Controller
     public function send(Request $request){
         Mail::to('gabi132002@gmail.com')->
         send(new ContactoMailable($request->all()));
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success','correo enviado correctamente');
     }
 }

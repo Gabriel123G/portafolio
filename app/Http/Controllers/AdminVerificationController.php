@@ -18,7 +18,7 @@ class AdminVerificationController extends Controller
         $user->email_verified_at = now();
         $user->save();
 
-        UserVerification::where('token',$token)->delete();
+        UserVerification::where('token',$record->token)->delete();
         return redirect()->route('login')->with('success', 'Usuario verificado correctamente');
     }
 

@@ -107,6 +107,8 @@ class AdminController extends Controller
             'descripcion-h2' => 'descripcion de habilidad 2 es obligatorio y no debe superar los 200 caracteres',
             'descripcion-h3' => 'descripcion de habilidad 3 es obligatorio y no debe superar los 200 caracteres',
             'descripcion-h4' => 'descripcion de habilidad 4 es obligatorio y no debe superar los 200 caracteres',
+            'github' => 'el campo de github debe tener maximo 250 caracteres',
+            'web' => 'el campo de web debe tener como maximo 250 caracteres'
         ];
         $validaciones = $request->validate([
             'idProject' => 'required|string',
@@ -120,6 +122,9 @@ class AdminController extends Controller
             'descripcion-h2' => 'required|string|max:250',
             'descripcion-h3' => 'required|string|max:250',
             'descripcion-h4' => 'required|string|max:250',
+            'github' => 'nullable|string|max:250',
+            'web' => 'nullable|string|max:250',
+
         ], $messages);
 
         $proyecto = Project::with(['skills'])->find($request->idProject);

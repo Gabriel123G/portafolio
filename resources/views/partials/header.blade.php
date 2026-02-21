@@ -1,3 +1,8 @@
+   @if (session('success'))
+    <div class="error-cont">
+        <span class="alert-error" id="alert-error">{{ session('success') }}</span>
+    </div>
+    @endif
 <header class="header-navbar"> 
     <nav class="nav-navbar">
         <ul class="ul-navbar">

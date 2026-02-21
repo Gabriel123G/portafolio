@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
+      <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/header.css')}}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/home.css')}}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}?v={{ time() }}">
+    <script src="{{ asset('js/admin.js') }}?v={{ time() }}"></script>
     <link rel="shortcut icon" href="{{ asset('imagenes/1.png')}}?v={{ time() }}">
     <title>Gabriel | González</title>
 </head>
@@ -21,9 +23,9 @@
                 <p>Mi nombre es Gabriel González, soy desarrollador fullstack junior y estudiante en la facultade de
                     ingienieria en sistema de la utp en la licenciatura de gestion y desarrollo de software.</p>
             </div>
-            <img src="{{ asset('imagenes/1.png')}}" alt="imagen-portada-portafolio">
+            <img src="{{ asset('imagenes/1.png')}}" alt="Portada del portafolio de Gabriel González">
         </header>
-        <svg class="svg-curve" viewBox="0 0 1440 79">
+        <svg class="svg-curve" viewBox="0 0 1440 79" aria-hidden="true">
             <path style="fill: rgb(10, 0, 27)"
                 d="M-100 79C-100 79 218.416 23.165 693.5 23.165C1168.58 23.165 1487 79 1487 79V0H-100V79Z">
         </svg>
@@ -38,10 +40,10 @@
                 @foreach ($proyectos as $proyecto)
 
                 <article class="proyect">
-                    <a href="{{ route('detalles', $proyecto->idProject) }}">
+                    <a href="{{ route('detalles', $proyecto->idProject) }}" title="Ver detalles de {{ $proyecto->name }}">
                         @foreach ($proyecto->images_urls as $id)
                         @if ($loop->iteration == 1)
-                        <img src="{{  route('imagen.proxy', ['id' => $id->url]) }}" alt="proyectos">
+                        <img src="{{  route('imagen.proxy', ['id' => $id->url]) }}" alt="proyecto{{ $proyecto->name }}">
                         @endif
                         @endforeach
 
