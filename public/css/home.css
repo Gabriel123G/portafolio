@@ -10,6 +10,9 @@ body{
 }
 .hero-titulo{
     margin: 0 7vw;
+    width: 46vw;           /* ejemplo de ancho */
+    white-space: normal;    /* permite saltos de línea */
+    overflow-wrap: break-word;
 }
 .hero-titulo h1 {
     color: antiquewhite;

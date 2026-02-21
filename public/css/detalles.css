@@ -1,7 +1,6 @@
 section {
     margin: 3vw 9vw;
 }
-
 .subtitulo-proyecto-1 {
     display: flex;
     justify-content: space-between;
@@ -28,7 +27,7 @@ section {
 .imagenes-grid{
     display: grid;
     grid-template-columns: repeat(4,20vw);
-    grid-template-rows: repeat(2,19vw);
+    grid-template-rows: repeat(2,17vw);
     gap: 1vw;
 }
 .img-grid-detalles{

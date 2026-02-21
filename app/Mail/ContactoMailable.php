@@ -29,7 +29,7 @@ class ContactoMailable extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-             from: new Address('gabi132002@gmail.com', 'Interasado'),
+             from: new Address(env('MAIL_FROM_ADDRESS'), 'Interasado'),
             subject: 'Acerca de mi y mi trabajo',
         );
     }

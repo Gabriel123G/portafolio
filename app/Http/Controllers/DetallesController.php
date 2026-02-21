@@ -30,7 +30,7 @@ class DetallesController extends Controller
         return response($response->body(), 200)
             ->header('Content-Type', $contentType)
             ->header('Content-Disposition', 'inline')
-            ->header('Cache-Control', 'public, max-age=86400') // 1 día
+            ->header('Cache-Control', 'public, max-age=3600') 
             ->header('ETag', md5($etag));
     }
 }

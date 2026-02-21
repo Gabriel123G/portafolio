@@ -28,8 +28,8 @@
         <header class="hero">
             <div class="hero-titulo">
                 @if (Auth::check())
-                <h1>{{ Auth::user()->name }}</h1>
-                <p>Bienvenido {{ Auth::user()->name }}</p>
+                <h1> Bienvenido {{ Auth::user()->name }}</h1>
+                <p>en esta zona podras crear proyectos con sus imagenes, editar unicamente texto del proyecto y eliminar proyecto incluyendo imagenes </p>
                 @endif
             </div>
             <img src="{{ asset('imagenes/hero_setup.jpg')}}" alt="imagen-portada-portafolio">
