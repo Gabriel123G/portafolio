@@ -1,7 +1,6 @@
 section {
     margin: 3vw 9vw;
 }
-
 .subtitulo-proyecto-1 {
     display: flex;
     justify-content: space-between;
@@ -28,7 +27,7 @@ section {
 .imagenes-grid{
     display: grid;
     grid-template-columns: repeat(4,20vw);
-    grid-template-rows: repeat(2,19vw);
+    grid-template-rows: repeat(2,17vw);
     gap: 1vw;
 }
 .img-grid-detalles{
@@ -133,12 +132,12 @@ section {
     text-align: left;
     font-family: 'Montserrat-Regular';
     font-weight: 600;
-    font-size: 2vw;
+    font-size: 1.5vw;
     color: rgb(10, 0, 27);
     margin: 1vw;
 }
 .habilidad p{
-    width: 50%;
+    width: 80%;
     margin: 1vw;
     line-height: 1.7vw;
     text-align: justify;

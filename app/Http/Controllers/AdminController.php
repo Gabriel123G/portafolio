@@ -6,24 +6,23 @@ use App\Models\ImageUrl;
 use App\Models\Project;
 use App\Models\Skill;
 use App\Services\ImagesServices;
-//use Google\Service\Storage;
 use Illuminate\Http\Request;
-
-
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    public function admin()
+    public function admin(ImagesServices $refreshToken)
     {
-        $token = session('google_token');
-        if (!$token) {
+        if (!Auth::user()->refresh_token) {
             return redirect()->route('google.redirect')
                 ->with('error', 'Debes autorizar Google Drive primero.');
         } else {
+            $refreshToken->refreshToken();
             $project = Project::with(['skills', 'images_urls'])->get();
             return view('admin', compact('project'));
         }
     }
+    
     public function crear(Request $request, ImagesServices $drive)
     {
         // Validar proyecto
@@ -34,31 +33,30 @@ class AdminController extends Controller
             'nombre-h2' => 'el dombre de habilidad es obligatorio',
             'nombre-h3' => 'el dombre de habilidad es obligatorio',
             'nombre-h4' => 'el dombre de habilidad es obligatorio',
-            'descripcion-h1' => 'descripcion de habilidad 1 es obligatorio',
-            'descripcion-h2' => 'descripcion de habilidad 2 es obligatorio',
-            'descripcion-h3' => 'descripcion de habilidad 3 es obligatorio',
-            'descripcion-h4' => 'descripcion de habilidad 4 es obligatorio ',
+            'descripcion-h1' => 'descripcion de habilidad 1 es obligatorio y no debe superar los 200 caracteres',
+            'descripcion-h2' => 'descripcion de habilidad 2 es obligatorio y no debe superar los 200 caracteres',
+            'descripcion-h3' => 'descripcion de habilidad 3 es obligatorio y no debe superar los 200 caracteres',
+            'descripcion-h4' => 'descripcion de habilidad 4 es obligatorio  y no debe superar los 200 caracteres',
         ];
         $validaciones = $request->validate([
             'name' => 'required|string|max:20',
-            'details' => 'required|string|max:50',
+            'details' => 'required|string|max:250',
             'nombre-h1' => 'required|string|max:20',
             'nombre-h2' => 'required|string|max:20',
             'nombre-h3' => 'required|string|max:20',
             'nombre-h4' => 'required|string|max:20',
-            'descripcion-h1' => 'required|string|max:100',
-            'descripcion-h2' => 'required|string|max:100',
-            'descripcion-h3' => 'required|string|max:100',
-            'descripcion-h4' => 'required|string|max:100',
+            'descripcion-h1' => 'required|string|max:200',
+            'descripcion-h2' => 'required|string|max:200',
+            'descripcion-h3' => 'required|string|max:200',
+            'descripcion-h4' => 'required|string|max:200',
         ], $messages);
 
-        // Validar imágenes (ajusta size según lo que quieras)
+
         $request->validate([
             'images'   => 'required|array|size:6',
             'images.*' => 'image|mimes:jpg,png|max:5120'
         ]);
 
-        // Recuperar token de sesión
         $token = session('google_token');
         $drive->setAccessToken($token);
 
@@ -98,42 +96,58 @@ class AdminController extends Controller
     public function editar(Request $request)
     {
         $messages = [
+            'idProject.required' => 'debe seleccionar un proyecto para editar',
             'name.required' => 'El nombre es obligatorio.',
             'details.required' => 'Los detalles son obligatorios',
             'nombre-h1' => 'el dombre de habilidad es obligatorio',
             'nombre-h2' => 'el dombre de habilidad es obligatorio',
             'nombre-h3' => 'el dombre de habilidad es obligatorio',
             'nombre-h4' => 'el dombre de habilidad es obligatorio',
-            'descripcion-h1' => 'descripcion de habilidad 1 es obligatorio',
-            'descripcion-h2' => 'descripcion de habilidad 2 es obligatorio',
-            'descripcion-h3' => 'descripcion de habilidad 3 es obligatorio',
-            'descripcion-h4' => 'descripcion de habilidad 4 es obligatorio ',
+            'descripcion-h1' => 'descripcion de habilidad 1 es obligatorio y no debe superar los 200 caracteres',
+            'descripcion-h2' => 'descripcion de habilidad 2 es obligatorio y no debe superar los 200 caracteres',
+            'descripcion-h3' => 'descripcion de habilidad 3 es obligatorio y no debe superar los 200 caracteres',
+            'descripcion-h4' => 'descripcion de habilidad 4 es obligatorio y no debe superar los 200 caracteres',
+            'github' => 'el campo de github debe tener maximo 250 caracteres',
+            'web' => 'el campo de web debe tener como maximo 250 caracteres'
         ];
         $validaciones = $request->validate([
+            'idProject' => 'required|string',
             'name' => 'required|string|max:20',
-            'details' => 'required|string|max:50',
+            'details' => 'required|string|max:250',
             'nombre-h1' => 'required|string|max:20',
             'nombre-h2' => 'required|string|max:20',
             'nombre-h3' => 'required|string|max:20',
             'nombre-h4' => 'required|string|max:20',
-            'descripcion-h1' => 'required|string|max:100',
-            'descripcion-h2' => 'required|string|max:100',
-            'descripcion-h3' => 'required|string|max:100',
-            'descripcion-h4' => 'required|string|max:100',
+            'descripcion-h1' => 'required|string|max:250',
+            'descripcion-h2' => 'required|string|max:250',
+            'descripcion-h3' => 'required|string|max:250',
+            'descripcion-h4' => 'required|string|max:250',
+            'github' => 'nullable|string|max:250',
+            'web' => 'nullable|string|max:250',
+
         ], $messages);
+
         $proyecto = Project::with(['skills'])->find($request->idProject);
         $proyecto->update($validaciones);
+        foreach ($proyecto->skills as $i => $skill) {
+            $skill->update([
+                'skill' => $validaciones['nombre-h' . $i + 1],
+                'details' => $validaciones['descripcion-h' . $i + 1],
+            ]);
+        }
+
+
         return redirect()->route('admin');
     }
     public function eliminar(Request $request)
     {
         $proyecto = Project::with(['images_urls'])->find($request->input('proyecto'));
         $token = session('google_token');
+        
         $imageService = new ImagesServices();
-        $imageService->setAccessToken($token); // token OAuth válido
+        $imageService->setAccessToken($token);
 
         foreach ($proyecto->images_urls as $image) {
-            // Aquí ya tienes el file_id directamente
             $imageService->deleteFile($image->url);
             $image->delete();
         }

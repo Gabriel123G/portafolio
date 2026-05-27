@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="{{ asset('css/home.css')}}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/detalles.css') }}?v={{ time() }}">
-
+      <script src="{{ asset('js/admin.js') }}?v={{ time() }}"></script>
+    <link rel="shortcut icon" href="{{ asset('imagenes/1.png')}}?v={{ time() }}">
     <title>Gabriel | González</title>
 </head>
 
@@ -118,10 +119,10 @@
                 </article>
                     <article class="enlaces">
                         @if ($project->github)
-                            <a href="{{ $project->github }}"><img class="redes-img" src="{{ asset('imagenes/detalles/enlace.png') }}" alt=""></a>
+                            <a href="{{ $project->github }}"><img class="redes-img" src="{{asset('imagenes/Black-Github-Logo-PNG-Image.png')  }}" alt=""></a>
                         @endif
                         @if ($project->web)
-                            <a href="{{ $project->web }}"><img class="redes-img" src="{{ asset('imagenes/Black-Github-Logo-PNG-Image.png') }}"></a>
+                            <a href="{{ $project->web }}"><img class="redes-img" src="{{ asset('imagenes/detalles/enlace.png') }}"></a>
                         @endif
                     </article>
                 

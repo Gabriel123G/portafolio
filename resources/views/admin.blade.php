@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="{{ asset('css/home.css')}}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}?v={{ time() }}">
-    <title>Admin</title>
     <script src="{{ asset('js/admin.js') }}?v={{ time() }}"></script>
+    <link rel="shortcut icon" href="{{ asset('imagenes/1.png')}}?v={{ time() }}">
+    <title>Admin</title>
 </head>
 
 <body>
@@ -23,11 +24,13 @@
 
     @include('partials.header')
     <main>
-        <div id="pro" data-proyectos="{{  $project }}"></div>
+        <div id="pro" data-proyectos="{{  $project }}" hidden></div>
         <header class="hero">
             <div class="hero-titulo">
-                <h1>Nombre del admin</h1>
-                <p>Bienvenido Nombre del admin</p>
+                @if (Auth::check())
+                <h1> Bienvenido {{ Auth::user()->name }}</h1>
+                <p>en esta zona podras crear proyectos con sus imagenes, editar unicamente texto del proyecto y eliminar proyecto incluyendo imagenes </p>
+                @endif
             </div>
             <img src="{{ asset('imagenes/hero_setup.jpg')}}" alt="imagen-portada-portafolio">
         </header>
@@ -148,7 +151,7 @@
                             <textarea id="web" name="web"></textarea>
                         </div>
                     </div>
-                    <button type="submit">Guardar proyecto</button>
+                    <button type="submit">Guardar cambios</button>
                 </form>
             </div>
             <div id="form-eliminar" class="form-control-admin">
