@@ -50,7 +50,7 @@
                 <button>Iniciar sesion</button>
             </form>
         </div>
-        <hr>
+         <hr style="width: 75%; margin-bottom: 2%;">
         <div class="div-form">
             <form class="formulario-contacto" action="{{ route('login.signup') }}" method="POST">
                 @csrf
@@ -60,7 +60,7 @@
                 <input class="input-form" type="email" name="email">
                 <label>Contraseña</label>
                 <input class="input-form" type="password" name="password">
-                <button>Iniciar sesion</button>
+                <button>Registrarse</button>
             </form>
         </div>
     </main>

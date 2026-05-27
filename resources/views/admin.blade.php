@@ -151,7 +151,7 @@
                             <textarea id="web" name="web"></textarea>
                         </div>
                     </div>
-                    <button type="submit">Guardar proyecto</button>
+                    <button type="submit">Guardar cambios</button>
                 </form>
             </div>
             <div id="form-eliminar" class="form-control-admin">

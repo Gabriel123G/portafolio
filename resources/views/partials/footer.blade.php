@@ -31,7 +31,7 @@
             </div>
             <a class="redes" href="{{ Route('WhatsApp') }}"><img class="redes-img" src="{{ asset('imagenes/WhatsApp-Logo.png') }}"
                     alt="whatsapp"></a>
-            <a class="redes" href="https://www.instagram.com/ofc.gabo_1309/"><img class="redes-img"
+            <a class="redes" href="https://www.instagram.com/syntaxcreator/"><img class="redes-img"
                     src="{{ asset('imagenes/instagram-Logo.png') }}" alt="instagram"></a>
             <a class="redes" href="https://www.linkedin.com/in/gabriel-gonz%C3%A1lez-38249229a/"><img class="redes-img"
                     src="{{ asset('imagenes/Untitled-2.png') }}" alt="linkedin"></a>
