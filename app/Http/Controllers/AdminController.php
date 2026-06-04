@@ -148,8 +148,12 @@ class AdminController extends Controller
         $imageService->setAccessToken($token);
 
         foreach ($proyecto->images_urls as $image) {
+            if ($image){
             $imageService->deleteFile($image->url);
             $image->delete();
+            }else{
+               return redirect()->route('admin')->with('success', 'no hay ningun proyecto para eliminar');
+            }
         }
         $proyecto->delete();
         return redirect()->route('admin');
