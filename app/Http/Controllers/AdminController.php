@@ -147,7 +147,7 @@ class AdminController extends Controller
         $imageService = new ImagesServices();
         $imageService->setAccessToken($token);
 
-        if ($proyecto->images_urls){
+        if (!is_null($proyecto->images_urls)){
         foreach ($proyecto->images_urls as $image) {
             $imageService->deleteFile($image->url);
             $image->delete();
